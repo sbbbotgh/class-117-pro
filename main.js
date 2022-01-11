@@ -6,13 +6,10 @@ var random_number = Math.floor((Math.random()*quick_draw_data_set.length)+1);
 var sketch = quick_draw_data_set[random_number];
 console.log(sketch);
 document.getElementById("doyou").innerHTML = "SHETCH TO BE DRAW: " + sketch;
-
-
 var timer_counter = 0;
 var timer_check = "";
 var answer_holder = "";
 var score = "";
-var drawn_sketch = "";
 
 function preload(){
     
@@ -25,33 +22,5 @@ function setup(){
 }
 
 function draw(){
-    check_sketch();
-    if(drawn_sketch == sketch){
-        answer_holder = "set";
-        score = score + 1;
-        document.getElementById("score").innerHTML = "SCORE : " + score;
-    }
-}
 
-function check_sketch(){
-    timer_counter  = timer_counter + 1;
-    document.getElementById("time").innerHTML = "TIME : " + timer_counter;
-    console.log(timer_counter);
-    if(timer_counter > 400){
-        timer_counter = 0;
-        timer_check = "completed";
-    }
-    if(answer_holder=="set"|| timer_check == "completed"){
-        timer_check = "";
-        answer_holder = "";
-        updateCanvas();
-    }
-}
-
-function updateCanvas(){
-    background("whitesmoke");
-    random_number = Math.floor((Math.random()*quick_draw_data_set.length)+1);
-    sketch = quick_draw_data_set[random_number];
-    console.log(sketch);
-    document.getElementById("doyou").innerHTML = "SHETCH TO BE DRAW: " + sketch;
 }
